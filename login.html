@@ -1,0 +1,451 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="author" content="LeaderOS">
+	<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?cache=1733885111">
+	
+	<title>Login - ArchMC</title>
+	<meta name="description" content="ArchMC is one of the biggest servers in North America with gamemodes designed for every play style. " />
+	<link rel="canonical" href="https://arch.lol" />
+	<meta property="og:type" content="website" />
+	<meta property="og:title" content="Login - ArchMC" />
+	<meta property="og:description" content="ArchMC is one of the biggest servers in North America with gamemodes designed for every play style. " />
+	<meta property="og:url" content="https://arch.lol" />
+	<meta property="og:site_name" content="ArchMC" />
+		
+	<!-- CSRF -->
+	<meta name="csrf-token" content="1b7d5b17b72430f77691851c59ef8846ed8f9b56c19b1f34c9dced6c7c31943f">
+	
+	<!-- EXTRAS -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@ttskch/select2-bootstrap4-theme@1.4.0/dist/select2-bootstrap4.min.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css" />
+	
+	<!-- FONTS -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="https://site-assets.fontawesome.com/releases/v6.6.0/css/all.css">
+	
+	<!-- THEMES -->
+	<link rel="stylesheet" type="text/css" href="/assets/flat/css/tabler.min.1733872071.css">
+	<link rel="stylesheet" type="text/css" href="/assets/flat/css/extra.1733872071.css">
+	
+	<link rel="stylesheet" type="text/css" href="/assets/flat/css/plugins/ckeditor/content-styles.1733872071.css">
+	
+	<style>
+		:host, :root, [data-bs-theme=light] {
+			--tblr-primary: #a20b11;
+		}
+	</style>
+	
+			
+	<!-- CUSTOM CSS -->
+	<style type="text/css">
+		.format-0 {
+  color:#000;
+  text-shadow:0.125em 0.125em 0 #000
+}
+.format-1 {
+  color:#00A;
+  text-shadow:0.125em 0.125em 0 #00002A
+}
+.format-2 {
+  color:#0A0;
+  text-shadow:0.125em 0.125em 0 #002A00
+}
+.format-3 {
+  color:#0AA;
+  text-shadow:0.125em 0.125em 0 #002A2A
+}
+.format-4 {
+  color:#A00;
+  text-shadow:0.125em 0.125em 0 #2A0000
+}
+.format-5 {
+  color:#A0A;
+  text-shadow:0.125em 0.125em 0 #2A002A
+}
+.format-6 {
+  color:#FA0;
+  text-shadow:0.125em 0.125em 0 #2A2A00
+}
+.format-7 {
+  color:#AAA;
+  text-shadow:0.125em 0.125em 0 #2A2A2A
+}
+.format-8 {
+  color:#555;
+  text-shadow:0.125em 0.125em 0 #151515
+}
+.format-9 {
+  color:#55F;
+  text-shadow:0.125em 0.125em 0 #15153F
+}
+.format-a {
+  color:#5F5;
+  text-shadow:0.125em 0.125em 0 #153F15
+}
+.format-b {
+  color:#5FF;
+  text-shadow:0.125em 0.125em 0 #153F3F
+}
+.format-c {
+  color:#F55;
+  text-shadow:0.125em 0.125em 0 #3F1515
+}
+.format-d {
+  color:#F5F;
+  text-shadow:0.125em 0.125em 0 #3F153F
+}
+.format-e {
+  color:#FF5;
+  text-shadow:0.125em 0.125em 0 #3F3F15
+}
+.format-f, #minetip-tooltip {
+  color:#FFF;
+  text-shadow:0.125em 0.125em 0 #3F3F3F
+}
+.format-l {
+  font-weight:bold;
+  letter-spacing:0.125em
+}
+.format-m {
+  text-decoration:line-through
+}
+.format-n {
+  text-decoration:underline
+}
+.format-o {
+  font-style:italic
+}
+.format-f, #minetip-tooltip {
+  color:#FFF;
+  text-shadow:0.125em 0.125em 0 #3F3F3F
+}
+#minetip-tooltip {
+  position:fixed;
+  top:0;
+  left:0;
+  background-color:#100010;
+  background-color:rgba(16,0,16,0.94);
+  padding:0.375em;
+  font-family:Minecraft,sans-serif;
+  font-size:16px;
+  word-spacing:4px;
+  white-space:nowrap;
+  line-height:1.25em;
+  margin:0.125em 0.25em;
+  pointer-events:none;
+  z-index:9999
+}
+#minetip-tooltip::before {
+  content:"";
+  position:absolute;
+  top:0.125em;
+  right:-0.125em;
+  bottom:0.125em;
+  left:-0.125em;
+  border:0.125em solid #100010;
+  border-style:none solid;
+  border-color:rgba(16,0,16,0.94)
+}
+#minetip-tooltip::after {
+  content:"";
+  position:absolute;
+  top:0.125em;
+  right:0;
+  bottom:0.125em;
+  left:0;
+  border:0.125em solid #2D0A63;
+  border-image:-webkit-linear-gradient(rgba(80,0,255,0.31),rgba(40,0,127,0.31)) 1;
+  border-image:linear-gradient(rgba(80,0,255,0.31),rgba(40,0,127,0.31)) 1
+}
+#minetip-tooltip > .description,
+#minetip-tooltip > .minetip-description {
+  display:block;
+  margin-top:0.25em
+}
+.item-amount {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  font-family: Minecraft,sans-serif !important;
+  font-weight: normal !important;
+  color: #FFF !important;
+  text-shadow: 2px 2px 0 #3F3F3F;
+  filter: dropshadow(color=#3F3F3F,offx=2,offy=2);
+  z-index: 2;
+}
+@font-face {
+  font-family:Minecraft;
+  src:url("/apps/main/public/assets/fonts/minecraft.eot?#iefix") format('embedded-opentype'),
+  url(/apps/main/public/assets/fonts/minecraft.woff) format('woff'),
+  url(/apps/main/public/assets/fonts/minecraft.ttf) format('truetype')
+}
+.glint {
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  filter: opacity(30%);
+  mix-blend-mode: lighten;
+}
+.credit-balance:hover {
+  color: #fff !important;
+}
+.table td, .table th {
+  border-top: 1px solid #303030;
+  border: 1px solid #303030;
+}
+table {
+  border: 1px solid #303030;
+}
+.c16, .c40, .c42 {
+  border: 1px solid #303030;
+}
+.c36 {
+  width: 100%;
+}
+.card-img-top.lazyload.loaded {
+  height: 100%;
+  object-fit: cover;
+}
+.large-footer .copyright-txt {
+  background-color: unset;
+}
+.footer-copyright .site {
+  color: rgba(255, 255, 255, 0.5);
+}
+.post-list .post-card-img img:hover {
+  transform: unset;
+}
+.footer-copyright {
+  color: rgba(255, 255, 255, 0.3);
+  padding-top: 15px;
+  padding-bottom: 15px;
+  text-align: center;
+  margin-bottom: 0;
+  display: inherit;
+}
+.status-text .icon:after {
+  height: unset;
+  border-radius: unset;
+  margin-bottom: unset;
+  content: "";
+  position: unset;
+  top: unset;
+  left: unset;
+  width: unset;
+  transition: unset;
+  box-shadow: unset;
+}
+.discord-text .icon:after {
+  height: unset;
+  border-radius: unset;
+  margin-bottom: unset;
+  content: "";
+  position: unset;
+  top: unset;
+  left: unset;
+  width: unset;
+  transition: unset;
+  box-shadow: unset;
+}
+.status-text:hover .icon svg, .discord-text:hover .icon svg {
+  margin-top: 7px !important;
+  transform: scale(1.1);
+  filter: brightness(85%);
+}
+.status-text .top-text, .status-text .bottom-text,
+.discord-text .top-text, .discord-text .bottom-text {
+  transition: 0.25s;
+}
+.status-text:hover .top-text, .status-text:hover .bottom-text,
+.discord-text:hover .top-text, .discord-text:hover .bottom-text {
+  filter: brightness(85%);
+  transition: 0.25s;
+}
+@media (min-width: 1600px) {
+  .forum-index-card .col-md-1_5 {
+    max-width: 8.333333%;
+    flex: 0 0 8.333333%;
+    display: flex;
+  }
+}
+.role__owner {
+  background-color: #a20b11;
+}
+.role__admin {
+  background-color: #a20b11;
+}
+.role__developer {
+  background-color: #aa00aa;
+}
+.role__moderator {
+  background-color: #00aa00;
+}
+.role__builder {
+  background-color: #00aaaa;
+}
+.role__majestic {
+  background-color: #00aaaa;
+}
+.role__mythic {
+  background-color: #aa00aa;
+}
+.role__heroic {
+  background-color: #00aa00;
+}
+.role__legendary {
+  background-color: #ffaa00;
+}
+.role__epic {
+  background-color: #cccc00;
+}
+.sidebar-store-card-content {
+  background-image: url(/apps/main/public/assets/img/extras/shining.png);
+  background-color: #101010;
+  border-radius: 0.25rem;
+}
+/*.img-container .img-card .card-img-top {
+  height: 100%;
+}*/	</style>
+</head>
+<body data-bs-theme="light" class="d-flex flex-column">
+<div class="page page-center auth-layout">
+	<div class="container container-tight py-4">
+		<div class="text-center mb-4">
+			<a href="/">
+				<img src="/assets/core/images/uploads/6cc1dc85d5f8d8ebbbf41ac237e13cf4.png" alt="ArchMC" class="auth-logo">
+			</a>
+		</div>
+		
+		
+
+<div class="card card-md">
+	<div class="card-body">
+		<h2 class="h2 text-center mb-1">Login</h2>
+		<p class="text-muted mb-5 text-center">Sign in to access your account.</p>
+		<form data-toggle="form-submit-with-loader" action="/login/" method="post">
+			<input type="hidden" name="csrf_token" value="1b7d5b17b72430f77691851c59ef8846ed8f9b56c19b1f34c9dced6c7c31943f">			<div class="mb-3">
+				<label for="username" class="form-label">Username</label>
+				<input type="text" name="username" id="username" class="form-control" required value="">
+			</div>
+			<div class="mb-2">
+				<label for="password" class="form-label">
+					Password					<span class="form-label-description">
+						<a href="/forgot-password/" tabindex="-1">
+							Forgot Password?						</a>
+					</span>
+				</label>
+				<div class="input-group input-group-flat">
+					<input type="password" name="password" id="password" class="form-control" required>
+					<span class="input-group-text">
+						<a href="#" class="link-secondary toggle-password no-underline" data-target="#password" tabindex="-1">
+							<i class="ti ti-eye"></i>
+						</a>
+					</span>
+				</div>
+			</div>
+			<div class="mb-2">
+				<label class="form-check">
+					<input type="checkbox" class="form-check-input" name="rememberMe" />
+					<span class="form-check-label">
+						Remember me					</span>
+				</label>
+			</div>
+						<div class="form-footer mt-4">
+				<button type="submit" class="btn btn-primary w-100">
+					Login				</button>
+			</div>
+		</form>
+	</div>
+			<div class="hr-text">
+			or		</div>
+		<div class="card-body">
+			<div class="row">
+				<div class="col">
+					<a href="/discord/login/" class="btn w-100">
+						<i class="ti ti-brand-discord icon text-primary"></i>
+						Sign in with Discord					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="text-center text-secondary mt-3">
+		Don't have an account? <a href="/register/">Register</a>
+	</div>
+	</div>
+	
+	<div class="text-center mb-4">
+		<a href="https://www.leaderos.net" target="_blank" id="powered_by_leaderos">Powered by <strong>LeaderOS</strong></a><script type="8e7f33bf67e3884e625aecf5-text/javascript">
+						var is_error;
+						var interval = setInterval(function() {
+							if (is_error) {
+								clearInterval(interval);
+								return false;
+							}
+							
+							var brand_el = document.getElementById("powered_by_leaderos");
+							var is_brand_visible = true;
+							
+							if (brand_el) {
+								var style = window.getComputedStyle(brand_el);
+								if (brand_el.offsetParent === null) {
+									is_brand_visible = false;
+								} else if (style.display === "none") {
+									is_brand_visible = false;
+								} else if (style.visibility === "hidden") {
+									is_brand_visible = false;
+								}
+							} else {
+								is_brand_visible = false;
+							}
+							
+							if (!is_brand_visible) {
+								is_error = true;
+								document.body.innerHTML = "<iframe src='https://www.leaderos.net/powered_by_leaderos.php' style='border: 0; position:fixed; top:0; left:0; right:0; bottom:0; width:100%; height:100%'></iframe>";
+							}
+						}, 1000);
+					</script>	</div>
+</div>
+
+<script type="8e7f33bf67e3884e625aecf5-text/javascript">
+	var defaultMode = "light";
+</script>
+
+<script type="8e7f33bf67e3884e625aecf5-text/javascript">
+	var lang = {
+		loading: "Loading...",
+	}
+</script>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" type="8e7f33bf67e3884e625aecf5-text/javascript"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-lazyload/16.1.0/lazyload.min.js" type="8e7f33bf67e3884e625aecf5-text/javascript"></script>
+
+<script src="/assets/flat/js/main.min.1733872071.js" type="8e7f33bf67e3884e625aecf5-text/javascript"></script>
+<script src="/assets/flat/js/tabler.min.1733872071.js" type="8e7f33bf67e3884e625aecf5-text/javascript"></script>
+
+
+<script type="8e7f33bf67e3884e625aecf5-text/javascript">
+	$(".toggle-password").on("click", function() {
+		var button = $(this);
+		var input = $($(this).attr("data-target"));
+		if (input.attr("type") == "password") {
+			input.attr("type", "text");
+			$(this).find("i").removeClass("ti-eye").addClass("ti-eye-off");
+		} else {
+			input.attr("type", "password");
+			$(this).find("i").removeClass("ti-eye-off").addClass("ti-eye");
+		}
+	});
+</script>
+<script src="/cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js" data-cf-settings="8e7f33bf67e3884e625aecf5-|49" defer></script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"rayId":"8f4d15876e91dba6","version":"2024.10.5","r":1,"token":"f7583a53be3d4544b7483db844ba38cb","serverTiming":{"name":{"cfExtPri":true,"cfL4":true,"cfSpeedBrain":true,"cfCacheStatus":true}}}' crossorigin="anonymous"></script>
+</body>
+</html>
